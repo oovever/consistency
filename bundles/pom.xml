@@ -1,0 +1,19 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.buaa.huawei</groupId>
+	<artifactId>com.buaa.huawei.bundles</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<!-- 引用root目录的pom文件 -->
+	<parent>
+		<groupId>com.buaa.huawei</groupId>
+		<artifactId>com.buaa.huawei.root</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<!-- 需要加载的模块 -->
+
+	<modules>
+		<module>com.buaa.huawei.consistency</module>
+	</modules>
+</project>

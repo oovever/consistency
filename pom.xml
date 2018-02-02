@@ -1,0 +1,22 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.buaa.huawei</groupId>
+	<artifactId>com.buaa.huawei.root</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<!-- 指定继承自figuration以及对应的路径 -->
+	<parent>
+		<groupId>com.buaa.huawei</groupId>
+		<artifactId>com.buaa.huawei.configuration</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>./releng/configuration</relativePath>
+	</parent>
+
+	<!-- 需要加载的模块 -->
+
+	<modules>
+		<module>bundles</module>
+	</modules>
+
+</project>

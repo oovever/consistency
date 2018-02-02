@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Consistency Category"
+            id="com.buaa.huawei.consistency.commands.category">
+      </category>
+      <command
+            name="Consistency Command"
+            categoryId="com.buaa.huawei.consistency.commands.category"
+            id="com.buaa.huawei.consistency.commands.consistencyCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.buaa.huawei.consistency.commands.consistencyCommand"
+            class="com.buaa.huawei.consistency.handler.ConsistencyHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.buaa.huawei.consistency.commands.consistencyCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Consistency Menu"
+               mnemonic="M"
+               id="com.buaa.huawei.consistency.menus.consistencyMenu">
+            <command
+                  commandId="com.buaa.huawei.consistency.commands.consistencyCommand"
+                  mnemonic="S"
+                  id="com.buaa.huawei.consistency.menus.consistencyCommand">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.buaa.huawei.consistency.toolbars.consistencyToolbar">
+            <command
+                  commandId="com.buaa.huawei.consistency.commands.consistencyCommand"
+                  icon="icons/consistency.gif"
+                  tooltip="Check consistency"
+                  id="com.buaa.huawei.consistency.toolbars.consistencyCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
