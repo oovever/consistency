@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 
 import com.buaa.huawei.consistency.util.Pair;
 import com.buaa.huawei.consistency.util.UMLDiagramType;
@@ -42,26 +43,22 @@ public class Mode1SelectionDialog extends Dialog {
 		Group model_group = new Group(dialog_area, SWT.NONE);
 		model_group.setLayout(new GridLayout(1, true));
 		Label model_label = new Label(model_group, SWT.NONE);
-		model_label.setText("模型" + model_name + "使用的UML图：");
-		// 让用户选择模型所用UML图的类型（单选）
-		Button graph_type1 = new Button(model_group, SWT.RADIO);
-		Button graph_type2 = new Button(model_group, SWT.RADIO);
-		graph_type1.setText("组件图");
-		graph_type2.setText("类图");
-		graph_type1.addSelectionListener(new SelectionAdapter() {
-
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				temp_selection.setLeft(UMLDiagramType.type1);
-			}
-		});
-		graph_type2.addSelectionListener(new SelectionAdapter() {
-
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				temp_selection.setLeft(UMLDiagramType.type2);
-			}
-		});
+		model_label.setText("模型文件：");
+		Text model_text = new Text(model_group, SWT.NONE);
+		model_text.setText(this.model_name);
+		model_text.setEditable(false);
+		/*
+		 * // 让用户选择模型所用UML图的类型（单选） Button graph_type1 = new Button(model_group, SWT.RADIO); Button
+		 * graph_type2 = new Button(model_group, SWT.RADIO); graph_type1.setText("组件图");
+		 * graph_type2.setText("类图"); graph_type1.addSelectionListener(new SelectionAdapter() {
+		 * 
+		 * @Override public void widgetSelected(SelectionEvent e) {
+		 * temp_selection.setLeft(UMLDiagramType.type1); } }); graph_type2.addSelectionListener(new
+		 * SelectionAdapter() {
+		 * 
+		 * @Override public void widgetSelected(SelectionEvent e) {
+		 * temp_selection.setLeft(UMLDiagramType.type2); } });
+		 */
 		model_label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		// 选择项目待查版本的Group
 		Group unchecked_group = new Group(dialog_area, SWT.NONE);
@@ -106,16 +103,11 @@ public class Mode1SelectionDialog extends Dialog {
 	 */
 	public Pair<String, Integer> getSelection() {
 		// TODO Auto-generated method stub
-		if ((this.selection.getLeft() == null) || (this.selection.getRight() == null)) {
-			if (this.selection.getLeft() == null) {
-				System.err.println("没有选择模型的UML图类型");
-			}
-			if (this.selection.getRight() == null) {
-				System.err.println("没有选择项目待查版本");
-			}
+		if (this.selection.getRight() == null) {
+			System.err.println("没有选择项目待查版本");
 			return null;
 		} else {
-			System.out.println("模型的UML图类型: " + this.selection.getLeft());
+			System.out.println("模型文件: " + this.model_name);
 			System.out.println("选择待查版本: " + this.projects[this.selection.getRight().intValue()].getName());
 			System.out.println();
 			return this.selection;

@@ -14,10 +14,10 @@ public class ModelAndProjectConsistencyChecker {
 		this.unchecked_hierarchy = unchecked_hierarchy;
 	}
 
-	public HashMap<String, HashMap<String, Pair<?, ?>>> checkConsistency() {
+	public Pair<Pair<String, String>, HashMap<String, HashMap<String, HashMap<String, ?>>>> checkConsistency() {
 		// TODO Auto-generated method stub
-		System.err.println("模型代码一致性检查没做");
-		return null;
+		ProjectAndProjectConsistencyChecker pp_checker = new ProjectAndProjectConsistencyChecker(this.base_hierarchy, this.unchecked_hierarchy);
+		return pp_checker.checkConsistency();
 	}
 
 }
